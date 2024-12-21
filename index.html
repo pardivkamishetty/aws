@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<body style="font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f4;">
+
+    <div style="border: 1px solid #ccc; padding: 20px; border-radius: 10px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="text-align: center;">Calculator</h2>
+        <input type="text" id="result" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; text-align: right;" disabled>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+            <button onclick="clearResult()" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">C</button>
+            <button onclick="appendToResult('7')" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">7</button>
+            <button onclick="appendToResult('8')" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">8</button>
+            <button onclick="appendToResult('9')" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">9</button>
+            <button onclick="appendToResult('/')" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">/</button>
+            <button onclick="appendToResult('4')" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">4</button>
+            <button onclick="appendToResult('5')" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">5</button>
+            <button onclick="appendToResult('6')" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">6</button>
+            <button onclick="appendToResult('*')" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">*</button>
+            <button onclick="appendToResult('1')" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">1</button>
+            <button onclick="appendToResult('2')" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">2</button>
+            <button onclick="appendToResult('3')" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">3</button>
+            <button onclick="appendToResult('-')" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">-</button>
+            <button onclick="appendToResult('0')" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">0</button>
+            <button onclick="appendToResult('.')" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">.</button>
+            <button onclick="calculateResult()" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #28a745; color: white; cursor: pointer;">=</button>
+            <button onclick="appendToResult('+')" style="flex: 1; padding: 15px; margin: 5px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer;">+</button>
+        </div>
+    </div>
+
+    <script>
+        function appendToResult(value) {
+            document.getElementById('result').value += value;
+        }
+
+        function clearResult() {
+            document.getElementById('result').value = '';
+        }
+
+        function calculateResult() {
+            const resultField = document.getElementById('result');
+            try {
+                resultField.value = eval(resultField.value);
+            } catch (error) {
+                resultField.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
